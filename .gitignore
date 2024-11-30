@@ -21,7 +21,7 @@
 go.work
 go.work.sum
 
-./pass-ssh
+pass-ssh
 
 # env file
 .env
