@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// CommandType represents the type of command
 func PrintUsage() {
 	fmt.Printf(`Usage:
   SSH:    %s <key_name> ssh     <user@host>   [ssh_options]

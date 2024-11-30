@@ -4,6 +4,7 @@ import (
 	"pass-ssh/core"
 )
 
+// SSHRunner runs ssh commands
 type SSHRunner struct {
 	KeyPath string
 	Args    []string
@@ -14,6 +15,7 @@ func (r SSHRunner) Run() error {
 	return core.RunCommand("ssh", args, nil)
 }
 
+// CopyRunner runs ssh-copy-id commands
 type CopyRunner struct {
 	PublicKeyPath string
 	Host          string

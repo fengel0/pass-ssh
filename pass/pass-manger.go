@@ -7,6 +7,7 @@ import (
 	"strings"
 )
 
+// stores the key in pass
 func StoreInPass(path string, content []byte) error {
 	cmd := exec.Command("pass", "insert", "--multiline", path)
 	cmd.Stdin = strings.NewReader(string(content))

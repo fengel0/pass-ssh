@@ -6,6 +6,7 @@ import (
 	"pass-ssh/core"
 )
 
+// GitRunner runs git commands
 type GitRunner struct {
 	KeyPath string
 	Args    []string

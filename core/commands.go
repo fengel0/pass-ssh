@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// CommandType represents the type of command
 type CommandType int
 
 const (
@@ -20,14 +21,18 @@ type Command struct {
 	Args    []string
 }
 
+// get_git_key_path returns the path to the git key in the pass store
 func get_git_key_path(key_name string) string {
 	return fmt.Sprintf("ssh-keys/git/%s", key_name)
 }
 
+// get_ssh_key_path returns the path to the ssh key in the pass store
 func get_ssh_key_path(key_name string) string {
 	return fmt.Sprintf("ssh-keys/server/%s", key_name)
 }
 
+// Parsing the command line arguments
+// todo: use library like spf13/cobra to make this more robust and extensible
 func ParseCommand(args []string) (Command, error) {
 	if len(args) < 2 {
 		return Command{}, fmt.Errorf("insufficient arguments")

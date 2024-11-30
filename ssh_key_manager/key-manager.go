@@ -16,6 +16,7 @@ type KeyManager struct {
 	PassPath string
 }
 
+// NewKeyManager creates a new Key
 func NewKeyManager(path string) (*KeyManager, error) {
 	tempDir, err := os.MkdirTemp("", "ssh-pass-*")
 	if err != nil {
@@ -29,10 +30,12 @@ func NewKeyManager(path string) (*KeyManager, error) {
 	}, nil
 }
 
+// Cleanup removes the temporary directory, nessessary because ssh-key can not be injected in to ssh commands
 func (km *KeyManager) Cleanup() {
 	os.RemoveAll(km.TempDir)
 }
 
+// Setup checks if the key exists in pass and extracts it
 func (km *KeyManager) Setup() error {
 	// Check if key exists
 	if err := km.checkKey(); err != nil {
